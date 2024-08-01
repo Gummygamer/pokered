@@ -35,9 +35,7 @@ BattleTransition:
 	jr z, .skip2 ; skip clearing the block if the enemy trainer is using it
 	push hl
 	push bc
-	ld bc, $10
-	xor a
-	call FillMemory
+	call BattleTransition_FastFill
 	pop bc
 	pop hl
 .skip2
@@ -531,8 +529,15 @@ BattleTransition_VerticalStripes_:
 	ld [hl], $ff
 	inc hl
 	inc hl
-	dec c
-	jr nz, .loop
+	ld [hl], $ff
+	inc hl
+	inc hl
+	ld [hl], $ff
+	inc hl
+	inc hl
+	ld [hl], $ff
+	inc hl
+	inc hl
 	ret
 
 ; used for low level wild dungeon battles
@@ -737,6 +742,30 @@ BattleTransition_Circle_Sub3:
 	dec c
 	jr nz, .loop2
 	jr BattleTransition_Circle_Sub3
+
+BattleTransition_FastFill:
+	ld hl, BattleTransition_FastFill_SMC
+	xor a  ; We want to fill with 0
+	ld [hl], a  ; Set the fill value
+	pop hl  ; Get the address to fill from the stack
+	push hl  ; Put it back for later
+	ld bc, $10  ; We're filling 16 bytes each time
+.loop
+	ld [hl], a  ; Fill with 0 (value in 'a')
+	inc hl
+	dec bc
+	ld a, b
+	or c
+	jr nz, .loop
+	ret
+BattleTransition_FastFill_SMC:
+	ld [hl], 0  ; This instruction will be modified
+	inc hl
+	dec bc
+	ld a, b
+	or c
+	jr nz, BattleTransition_FastFill_SMC
+	ret
 
 BattleTransition_CircleData1: db 2, 3, 5, 4, 9, -1
 BattleTransition_CircleData2: db 1, 1, 2, 2, 4, 2, 4, 2, 3, -1
