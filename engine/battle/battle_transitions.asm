@@ -745,19 +745,11 @@ BattleTransition_Circle_Sub3:
 
 BattleTransition_FastFill:
 	ld hl, BattleTransition_FastFill_SMC
-	xor a  ; We want to fill with 0
+	xor a  ; We want to fill with 0 in this case
 	ld [hl], a  ; Set the fill value
 	pop hl  ; Get the address to fill from the stack
 	push hl  ; Put it back for later
 	ld bc, $10  ; We're filling 16 bytes each time
-.loop
-	ld [hl], a  ; Fill with 0 (value in 'a')
-	inc hl
-	dec bc
-	ld a, b
-	or c
-	jr nz, .loop
-	ret
 BattleTransition_FastFill_SMC:
 	ld [hl], 0  ; This instruction will be modified
 	inc hl
