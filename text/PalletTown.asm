@@ -1,56 +1,53 @@
 _PalletTownOakHeyWaitDontGoOutText::
-	text "OAK: Hey! Wait!"
-	line "Don't go out!@"
+	text "OAK: Whoa, kiddo!"
+	line "The void beckons!@"
 	text_end
 
 _PalletTownOakItsUnsafeText::
-	text "OAK: It's unsafe!"
-	line "Wild #MON live"
-	cont "in tall grass!"
+	text "OAK: Danger lurks!"
+	line "Grass whispers of"
+	cont "eldritch horrors!"
+	para "You need a loyal"
+	line "beast to fend off"
+	cont "the cosmic dread."
+	cont "Eureka!"
 
-	para "You need your own"
-	line "#MON for your"
-	cont "protection."
-	cont "I know!"
-
-	para "Here, come with"
-	line "me!"
+	para "Follow me into"
+	line "the unknown!"
 	done
 
 _PalletTownGirlText::
-	text "I'm raising"
-	line "#MON too!"
-
-	para "When they get"
-	line "strong, they can"
-	cont "protect me!"
+	text "I'm nurturing"
+	line "pocket dimensions!"
+	para "Soon they'll grow"
+	line "strong enough to"
+	cont "bend reality!"
 	done
 
 _PalletTownFisherText::
-	text "Technology is"
-	line "incredible!"
-
-	para "You can now store"
-	line "and recall items"
-	cont "and #MON as"
-	cont "data via PC!"
+	text "Science has gone"
+	line "too far!"
+	para "We can now fold"
+	line "space-time to"
+	cont "store creatures"
+	cont "in tiny balls!"
 	done
 
 _PalletTownOaksLabSignText::
-	text "OAK #MON"
-	line "RESEARCH LAB"
+	text "OAK'S REALM OF"
+	line "BIZARRE RESEARCH"
 	done
 
 _PalletTownSignText::
 	text "PALLET TOWN"
-	line "Shades of your"
-	cont "journey await!"
+	line "Where normality"
+	cont "comes to die!"
 	done
 
 _PalletTownPlayersHouseSignText::
-	text "<PLAYER>'s house "
+	text "<PLAYER>'s portal "
 	done
 
 _PalletTownRivalsHouseSignText::
-	text "<RIVAL>'s house "
+	text "<RIVAL>'s nightmare "
 	done
